@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import SearchResults from './components/SearchResults/SearchResults';
 import { fetchCharacters } from './services/api';
-import { Character } from './types';
+import { Character } from './interfaces/types';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import TopField from './components/TopField/TopField';
 import ErrorButton from './components/ErrorButton/ErrorButton';

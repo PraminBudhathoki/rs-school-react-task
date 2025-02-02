@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Character } from '../../types';
+import { Character } from '../../interfaces/types';
 
 interface Props {
   results: Character[];
