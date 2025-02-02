@@ -1,0 +1,3 @@
+echo "Linting whole repo using eslint"
+npm run lint
+
