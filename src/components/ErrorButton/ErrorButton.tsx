@@ -1,30 +1,21 @@
-import { Component } from 'react';
+import { useState, FC } from 'react';
 
-interface State {
-  throwError: boolean;
-}
+const ErrorButton: FC = () => {
+  const [throwError, setThrowError] = useState<boolean>(false);
 
-class ErrorButton extends Component<Record<string, never>, State> {
-  constructor(props: Record<string, never>) {
-    super(props);
-    this.state = { throwError: false };
-  }
-
-  handleClick = () => {
-    this.setState({ throwError: true });
+  const handleClick = (): void => {
+    setThrowError(true);
   };
 
-  render() {
-    if (this.state.throwError) {
-      throw new Error('Test Error');
-    }
-
-    return (
-      <button className="error-button-center" onClick={this.handleClick}>
-        Throw Error
-      </button>
-    );
+  if (throwError) {
+    throw new Error('Test Error');
   }
-}
+
+  return (
+    <button className="error-button-center" onClick={handleClick}>
+      Throw Error
+    </button>
+  );
+};
 
 export default ErrorButton;
