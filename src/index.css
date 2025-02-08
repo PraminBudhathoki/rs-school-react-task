@@ -23,6 +23,7 @@ body {
 .app {
   display: flex;
   flex-direction: column;
+  gap: 20px;
   padding: 40px;
   background-color: #000000;
   height: 100%;
@@ -169,4 +170,28 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+.pagination button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: #007bff;
+  border-radius: 0.25rem;
+  color: #fff;
+}
+.pagination button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+.pagination span {
+  font-size: 1.2em;
+  color: #fff;
 }
