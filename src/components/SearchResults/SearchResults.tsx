@@ -21,7 +21,7 @@ const SearchResults: FC<Props> = ({ results, loading }) => {
 
   if (loading) {
     return (
-      <div className="loader">
+      <div className="loader" role="status">
         <div className="spinner"></div>
       </div>
     );
