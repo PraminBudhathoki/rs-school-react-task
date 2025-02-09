@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Character } from '../../interfaces/types';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 interface Props {
   results: Character[];
@@ -7,6 +8,17 @@ interface Props {
 }
 
 const SearchResults: FC<Props> = ({ results, loading }) => {
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const handleItemClick = (id: number) => {
+    console.log(`Item clicked: ${id}`);
+    searchParams.set('details', id.toString());
+    setSearchParams(searchParams);
+    console.log('Updated searchParams:', searchParams.toString());
+    navigate(`details/${id}`);
+  };
+
   if (loading) {
     return (
       <div className="loader">
@@ -26,7 +38,18 @@ const SearchResults: FC<Props> = ({ results, loading }) => {
   return (
     <div className="results">
       {results.map((result: Character) => (
-        <div key={result.id} className="result-item">
+        <div
+          key={result.id}
+          className="result-item"
+          role="button"
+          tabIndex={0}
+          onClick={() => handleItemClick(result.id)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              handleItemClick(result.id);
+            }
+          }}
+        >
           <img src={result.image} alt={result.name} />
           <div>
             <h3>Name: {result.name}</h3>

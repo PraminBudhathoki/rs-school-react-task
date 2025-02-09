@@ -24,3 +24,12 @@ export const fetchCharacters = async (
   const data: ApiResponse = await response.json();
   return { characters: data.results, totalPages: data.info.pages };
 };
+
+export const fetchCharacterDetails = async (id: number): Promise<Character> => {
+  const response = await fetch(`${API_URL}/character/${id}`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch character details');
+  }
+  const data: Character = await response.json();
+  return data;
+};
