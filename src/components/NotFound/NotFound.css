@@ -1,0 +1,37 @@
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000;
+  font-family: 'Geist', sans-serif;
+}
+
+.not-found-box {
+  text-align: center;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+.not-found-box h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #dc3545;
+}
+.not-found-box p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+.not-found-box a {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #007bff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.not-found-box a:hover {
+  background-color: #0063cc;
+}
